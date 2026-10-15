@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Binary Increment Turing Machine</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <header>
+      <h1>Binary Increment Turing Machine</h1>
+      <p>
+        Theory of Computation Project |
+        Interactive Turing Machine Simulator
+      </p>
+    </header>
+    
+<section class="panel">
+  <h2>Connect JFLAP Turing Machine</h2>
+
+  <p style="margin-bottom: 15px;">
+    Upload your JFLAP .jff file to load
+    the Turing Machine into this simulator.
+  </p>
+
+  <input
+    type="file"
+    id="jflapFile"
+    accept=".jff,.xml"
+  >
+
+  <p id="jflapStatus" style="margin-top: 15px;">
+    No JFLAP file loaded.
+  </p>
+</section>
+
+    <section class="panel">
+      <h2>Binary Input</h2>
+
+      <div class="input-group">
+        <input
+          type="text"
+          id="binaryInput"
+          placeholder="Enter binary number (e.g. 1011)"
+          value="1011"
+          autocomplete="off"
+        >
+
+        <button id="startBtn">Start</button>
+      </div>
+
+      <p id="errorMessage" class="error"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Turing Machine Tape</h2>
+
+      <div id="tapeContainer" class="tape-container">
+        <!-- JavaScript will generate tape cells -->
+      </div>
+
+      <div class="controls">
+        <button id="stepBtn" disabled>Next Step</button>
+        <button id="autoBtn" disabled>Auto Run</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Machine Status</h2>
+
+      <div class="status-grid">
+        <div>
+          <h3>Current State</h3>
+          <p id="currentState">q0</p>
+        </div>
+
+        <div>
+          <h3>Head Position</h3>
+          <p id="headPosition">—</p>
+        </div>
+
+        <div>
+          <h3>Steps</h3>
+          <p id="stepCount">0</p>
+        </div>
+      </div>
+
+      <p id="statusMessage">
+        Enter a binary number and click Start.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>Binary Increment Result</h2>
+
+      <div class="result-box">
+        <p>Original Input: <span id="originalInput">—</span></p>
+        <p>Final Output: <span id="finalOutput">—</span></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Binary Increment Using a Turing Machine |
+        Implemented with HTML, CSS and JavaScript
+      </p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

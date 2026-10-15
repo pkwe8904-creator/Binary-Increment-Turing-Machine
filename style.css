@@ -1,0 +1,271 @@
+
+/* General styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 35px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+header h1 {
+  font-size: 36px;
+  color: #38bdf8;
+  margin-bottom: 12px;
+}
+
+header p {
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+/* Panels */
+.panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.panel h2 {
+  font-size: 21px;
+  color: #7dd3fc;
+  margin-bottom: 22px;
+}
+
+/* Binary input */
+.input-group {
+  display: flex;
+  gap: 14px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #475569;
+  border-radius: 10px;
+  background: #0f172a;
+  color: white;
+  outline: none;
+}
+
+input:focus {
+  border-color: #38bdf8;
+}
+
+/* Buttons */
+button {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #0284c7;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #0369a1;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: #475569;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+#autoBtn {
+  background: #059669;
+}
+
+#autoBtn:hover:not(:disabled) {
+  background: #047857;
+}
+
+#resetBtn {
+  background: #64748b;
+}
+
+/* Turing Machine Tape */
+.tape-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  min-height: 115px;
+  overflow-x: auto;
+  padding: 25px 10px;
+  border-radius: 12px;
+  background: #0f172a;
+}
+
+.tape-cell {
+  position: relative;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  background: #1e293b;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.tape-cell.active {
+  background: #075985;
+  border-color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+}
+
+.tape-cell.active::after {
+  content: "▲ HEAD";
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #38bdf8;
+  white-space: nowrap;
+}
+
+/* Machine status */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.status-grid > div {
+  background: #0f172a;
+  border: 1px solid #334155;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.status-grid h3 {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.status-grid p {
+  font-size: 26px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+#statusMessage {
+  text-align: center;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Results */
+.result-box {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.result-box p {
+  font-size: 18px;
+  margin-bottom: 14px;
+  overflow-wrap: anywhere;
+}
+
+.result-box p:last-child {
+  margin-bottom: 0;
+}
+
+#originalInput {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+#finalOutput {
+  color: #4ade80;
+  font-weight: bold;
+}
+
+/* Validation */
+.error {
+  color: #f87171;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tape-cell {
+    flex-basis: 48px;
+    width: 48px;
+    height: 48px;
+  }
+}
